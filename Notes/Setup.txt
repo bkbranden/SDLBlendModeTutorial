@@ -1,0 +1,30 @@
+SDL
+	- A dynamically linked library that has 3 parts:
+		* Header files (Library.h)
+		* Library files (libLibrary.a)
+		* Binary files (Library.so)
+
+	- Compiler needs to be able to find the header files when compiling
+		* If it complains that it can't find SDL.h, it means that the header files aren't in a place that the compiler looks for header files
+
+	- After the compiler compiles all of the files, it has to link them together 
+		* Can either configure the compiler to search in an additional directory wherre
+		  SDL lirary files are located
+		* Or can put the library files in with the rest of the library files that
+		  the compiler comes with
+		* If compiler complains that it can't find -lSDL or SDL2.lib it means
+		  the library files aren't in a place that the linker looks for library files
+
+Starting a window
+	- Always include SDL since the functions and datatypes are needed
+	  to make any SDL code
+		* First argument to SDL_CreateWindow is the window's caption or title
+		* Next two arguments define the x and y position the window is created in
+		* Next two arguments define the window's width and height
+		* Final argument are the creation flags
+			- SDL_WINDOW_SHOWN makes sure the window is shown when created
+
+SDL_GetError()
+	- Very useful function, whenever something goes wrong and
+	  you need to know why, SDL_GetError() will let you know if any errors
+	  happened inside of any SDL function

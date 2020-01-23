@@ -1,0 +1,31 @@
+SDL_Surface
+    - An image data type that contains the pixels of an image along with all data needed to render it
+
+    - Just SDL_Surface renders with the CPU
+
+    - Use pointers to SDL Surfaces, 2 reasons:
+        * Will dynamically allocate memory to load images
+
+        * Better to reference image by memory location
+
+SDL_GetWindowSurface()
+    - Want to show images within the window
+        * To do that, must get the image inside the window 
+        * Use this to grab the surface contained by the window
+
+Blitting/SDL_BlitSurface()
+    - Blitting takes in a source surface and stamps a copy of it into the destination surface 
+        * First argument is the source surface
+        * Third argument is the destination surface
+
+UpdateSurface
+    - After drawing everything we want to show for the current frame, we have to update the screen using
+      SDL_UpdateWindowSurface
+        * In this case, there are double buffers and sometimes you draw to the buffer in the back
+    
+    - When making draw calls like SDL_BlitSurface, you render to the back buffer
+
+    - What we see on the screen is the front buffer
+    
+    - Helpful when draw calls take multiple frames to draw to the screen as this prevents us from seeing unfinished
+      draw frames being drawn to the front buffer
